@@ -13,7 +13,6 @@ function updateKey() {
   keyDisplay.textContent = keys[currentKeyIndex];
 }
 
-// Показати повідомлення
 function showError(msg) {
   PNotify.error({
     text: msg,
@@ -28,13 +27,11 @@ function showSuccess(msg) {
   });
 }
 
-// Запуск нової гри
 newGameBtn.addEventListener('click', () => {
   updateKey();
   showSuccess("Нова гра розпочата! Натисни правильну клавішу.");
 });
 
-// Обробка клавіші
 document.addEventListener('keydown', (e) => {
   if (e.key === keys[currentKeyIndex]) {
     showSuccess("Правильно!");
@@ -44,10 +41,8 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// Заборонити стандартну дію
 document.addEventListener('keypress', (e) => {
   e.preventDefault();
 });
 
-// Запускаємо гру спочатку
 updateKey();
